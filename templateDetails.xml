@@ -7,6 +7,10 @@
 	<authorEmail>admin@joomla.org</authorEmail>
 	<copyright>(C) 2017 Open Source Matters, Inc.</copyright>
 	<description>TPL_FOOO_XML_DESCRIPTION</description>
+
+
+
+	<inheritable>1</inheritable>
 	<files>
 		<filename>component.php</filename>
 		<filename>error.php</filename>
@@ -14,15 +18,23 @@
 		<filename>joomla.asset.json</filename>
 		<filename>offline.php</filename>
 		<filename>templateDetails.xml</filename>
-		<filename>template_preview.png</filename>
-		<filename>template_thumbnail.png</filename>
-		<folder>css</folder>
+
+
+
 		<folder>html</folder>
-		<folder>images</folder>
+
 		<folder>language</folder>
-		<folder>js</folder>
-		<folder>scss</folder>
+
 	</files>
+
+
+
+	<media destination="templates/site/fooo" folder="media">
+		<folder>js</folder>
+		<folder>css</folder>
+		<folder>scss</folder>
+		<folder>images</folder>
+	</media>	
 	<positions>
 		<position>topbar</position>
 		<position>below-top</position>
@@ -112,9 +124,16 @@
 
 				<field
 					name="colorName"
-					type="list"
-					default="colors_standard"
+					type="filelist"
 					label="TPL_FOOO_COLOR_NAME_LABEL"
+					default="colors_standard"
+					fileFilter="^custom.+[^min]\.css$"
+					exclude="^colors.+"
+					stripext="true"
+					hide_none="true"
+					hide_default="true"
+					directory="media/templates/site/cassiopeia/css/global/"
+					validate="options"
 					>
 					<option value="colors_standard">TPL_FOOO_COLOR_NAME_STANDARD</option>
 					<option value="colors_alternative">TPL_FOOO_COLOR_NAME_ALTERNATIVE</option>

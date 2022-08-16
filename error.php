@@ -29,7 +29,7 @@ $menu     = $app->getMenu()->getActive();
 $pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
 
 // Template path
-$templatePath = 'templates/' . $this->template;
+$templatePath = 'media/templates/site/fooo';
 
 // Color Theme
 $paramsColorName = $this->params->get('colorName', 'colors_standard');
@@ -44,10 +44,10 @@ if ($paramsFontScheme)
 {
 	if (stripos($paramsFontScheme, 'https://') === 0)
 	{
-		$this->getPreloadManager()->preconnect('https://fonts.googleapis.com/', []);
-		$this->getPreloadManager()->preconnect('https://fonts.gstatic.com/', []);
-		$this->getPreloadManager()->preload($paramsFontScheme, ['as' => 'style']);
-		$wa->registerAndUseStyle('fontscheme.current', $paramsFontScheme, [], ['media' => 'print', 'rel' => 'lazy-stylesheet', 'onload' => 'this.media=\'all\'']);
+		$this->getPreloadManager()->preconnect('https://fonts.googleapis.com/', ['crossorigin' => 'anonymous']);
+		$this->getPreloadManager()->preconnect('https://fonts.gstatic.com/', ['crossorigin' => 'anonymous']);
+		$this->getPreloadManager()->preload($paramsFontScheme, ['as' => 'style', 'crossorigin' => 'anonymous']);
+		$wa->registerAndUseStyle('fontscheme.current', $paramsFontScheme, [], ['media' => 'print', 'rel' => 'lazy-stylesheet', 'onload' => 'this.media=\'all\'', 'crossorigin' => 'anonymous']);
 
 		if (preg_match_all('/family=([^?:]*):/i', $paramsFontScheme, $matches) > 0)
 		{
@@ -98,7 +98,7 @@ elseif ($this->params->get('siteTitle'))
 }
 else
 {
-	$logo = '<img src="' . $this->baseurl . '/' . $templatePath. '/images/logo.svg" class="logo d-inline-block" alt="' . $sitename . '">';
+	$logo = HTMLHelper::_('image', 'logo.svg', $sitename, ['class' => 'logo d-inline-block'], true, 0);
 }
 
 // Container
