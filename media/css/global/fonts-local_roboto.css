@@ -119,8 +119,8 @@
   src: url("../../../../../vendor/roboto-fontface/fonts/roboto/Roboto-BlackItalic.woff2") format("woff2"), url("../../../../../vendor/roboto-fontface/fonts/roboto/Roboto-BlackItalic.woff") format("woff");
 }
 :root {
-  --cassiopeia-font-family-body: "Roboto", sans-serif;
-  --cassiopeia-font-family-headings: "Roboto", sans-serif;
-  --cassiopeia-font-weight-headings: 700;
-  --cassiopeia-font-weight-normal: 400;
+  --fooo-font-family-body: "Roboto", sans-serif;
+  --fooo-font-family-headings: "Roboto", sans-serif;
+  --fooo-font-weight-headings: 700;
+  --fooo-font-weight-normal: 400;
 }

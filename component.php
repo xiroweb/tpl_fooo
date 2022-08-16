@@ -38,10 +38,10 @@ if ($paramsFontScheme)
 
 		if (preg_match_all('/family=([^?:]*):/i', $paramsFontScheme, $matches) > 0)
 		{
-			$fontStyles = '--cassiopeia-font-family-body: "' . str_replace('+', ' ', $matches[1][0]) . '", sans-serif;
-			--cassiopeia-font-family-headings: "' . str_replace('+', ' ', isset($matches[1][1]) ? $matches[1][1] : $matches[1][0]) . '", sans-serif;
-			--cassiopeia-font-weight-normal: 400;
-			--cassiopeia-font-weight-headings: 700;';
+			$fontStyles = '--fooo-font-family-body: "' . str_replace('+', ' ', $matches[1][0]) . '", sans-serif;
+			--fooo-font-family-headings: "' . str_replace('+', ' ', isset($matches[1][1]) ? $matches[1][1] : $matches[1][0]) . '", sans-serif;
+			--fooo-font-weight-normal: 400;
+			--fooo-font-weight-headings: 700;';
 		}
 	}
 	else
